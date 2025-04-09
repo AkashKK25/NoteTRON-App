@@ -1,7 +1,7 @@
 {
     "name": "notetron",
     "productName": "NoteTRON",
-    "version": "1.0.0",
+    "version": "2.1.0",
     "description": "A sleek note-taking app inspired by TRON Legacy",
     "main": "main.js",
     "scripts": {

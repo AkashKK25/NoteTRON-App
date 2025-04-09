@@ -8,22 +8,18 @@
   overflow-y: auto;
   flex-shrink: 0;
 }:root {
-  --bg-color: #0a0e17;
-  --card-bg: #1a2634;
-  --card-bg-active: #20304a;
-  --text-color: #e0f0f7;
-  --text-secondary: #66b3f0;
-  --accent-color: #4cc9f0;
-  --accent-color-2: #7209b7;
-  --highlight-color: #00d8ea;
-  --purple-accent: #9d4edd;
-  --purple-light: #c77dff;
+  --bg-color: #0a0a0a;
+  --card-bg: #1a1a1a;
+  --card-bg-active: #2a2a2a;
+  --text-color: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --accent-color: #b267e6;
+  --accent-color-2: #9933cc;
+  --highlight-color: #ccaaff;
   --error-color: #e63946;
-  --warning-color: #ffbe0b;
-  --success-color: #2ecc71;
-  --border-color: #144583;
-  --scrollbar-thumb: #4cc9f0;
-  --scrollbar-track: #0c141f;
+  --border-color: #333333;
+  --scrollbar-thumb: #444444;
+  --scrollbar-track: #1a1a1a;
 }
 
 * {
@@ -56,8 +52,7 @@ header {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--border-color);
-  background-color: rgba(10, 20, 35, 0.9);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  background-color: var(--bg-color);
 }
 
 .app-title {
@@ -68,8 +63,7 @@ header {
 h1 {
   font-size: 1.8rem;
   font-weight: 500;
-  color: var(--highlight-color);
-  text-shadow: 0 0 3px var(--highlight-color);
+  color: var(--accent-color);
 }
 
 .tagline {
@@ -92,27 +86,25 @@ h1 {
   outline: none;
   width: 250px;
   margin-right: 0.5rem;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition: border-color 0.2s;
 }
 
 #search-input:focus {
-  border-color: var(--highlight-color);
-  box-shadow: 0 0 5px var(--highlight-color);
+  border-color: var(--accent-color);
 }
 
 #search-button {
   background-color: var(--accent-color);
-  color: #000;
+  color: #fff;
   border: none;
   border-radius: 4px;
   padding: 0.5rem;
   cursor: pointer;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s;
 }
 
 #search-button:hover {
-  background-color: var(--highlight-color);
-  box-shadow: 0 0 8px var(--highlight-color);
+  background-color: var(--accent-color-2);
 }
 
 main {
@@ -380,7 +372,7 @@ main {
 
 #add-note-button {
   background-color: var(--accent-color);
-  color: #000;
+  color: #fff;
   border: none;
   border-radius: 50%;
   width: 3rem;
@@ -390,14 +382,12 @@ main {
   justify-content: center;
   cursor: pointer;
   font-size: 1.2rem;
-  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 0 6px var(--accent-color);
+  transition: background-color 0.2s, transform 0.2s;
 }
 
 #add-note-button:hover {
-  background-color: var(--highlight-color);
+  background-color: var(--accent-color-2);
   transform: scale(1.05);
-  box-shadow: 0 0 10px var(--highlight-color);
 }
 
 /* Empty states */

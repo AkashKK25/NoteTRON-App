@@ -365,12 +365,42 @@ function handleSearch() {
 // Move note to a different category
 function moveNoteToCategory(noteId, categoryId) {
   const note = appState.notes.find(note => note.id === noteId);
+  
   if (note) {
+    // Check if we're trying to move to the same category
+    if ((note.categoryId === categoryId) || 
+        (categoryId === 'all' && note.categoryId === null)) {
+      return; // No change needed
+    }
+    
+    // Update the note's category
     note.categoryId = categoryId === 'all' ? null : categoryId;
     note.updatedAt = new Date().toISOString();
-    saveNotes();
-    renderNotes();
     
+    // Save changes
+    saveNotes();
+    
+    // Update UI to reflect the change
+    const categoryButton = document.querySelector(`.note-card[data-id="${noteId}"] .category-button i`);
+    if (categoryButton) {
+      if (note.categoryId) {
+        // Note is in a category
+        categoryButton.className = 'fas fa-folder-open';
+        categoryButton.style.color = 'var(--accent-color)';
+      } else {
+        // Note is in "All Notes"
+        categoryButton.className = 'fas fa-folder';
+        categoryButton.style.color = '';
+      }
+    }
+    
+    // If we're in a category view and removing a note from this category,
+    // we need to update the UI
+    if (appState.activeCategory !== 'all' && note.categoryId !== appState.activeCategory) {
+      renderNotes(); // Re-render to remove the note from view
+    }
+    
+    // Show notification
     const categoryName = categoryId === 'all' ? 'All Notes' : 
       appState.categories.find(cat => cat.id === categoryId)?.name || 'Unknown Category';
     
@@ -656,6 +686,9 @@ function renderNotes(notesToRender = null) {
     noteCard.dataset.id = note.id;
     noteCard.tabIndex = "0"; // Make focusable
     
+    // Determine if the note is assigned to a specific category
+    const isInCategory = note.categoryId !== null;
+    
     noteCard.innerHTML = `
       <div class="note-header">
         <div class="dropdown-icon">
@@ -672,7 +705,8 @@ function renderNotes(notesToRender = null) {
             <i class="fas fa-copy"></i>
           </button>
           <button class="note-action-button category-button" title="Move to Category">
-            <i class="fas fa-folder"></i>
+            <i class="fas ${isInCategory ? 'fa-folder-open' : 'fa-folder'}" 
+               ${isInCategory ? 'style="color: var(--accent-color);"' : ''}></i>
           </button>
           <button class="note-action-button delete-button" title="Delete Note">
             <i class="fas fa-trash"></i>
@@ -775,6 +809,10 @@ function renderNotes(notesToRender = null) {
 
 // Show category dropdown menu for moving notes
 function showCategoryDropdown(noteId, target) {
+  // Get the current note to determine its category
+  const note = appState.notes.find(note => note.id === noteId);
+  const currentCategoryId = note ? note.categoryId : null;
+  
   // Remove any existing dropdown
   const existingDropdown = document.querySelector('.dropdown-menu');
   if (existingDropdown) {
@@ -786,21 +824,25 @@ function showCategoryDropdown(noteId, target) {
   dropdown.className = 'dropdown-menu';
   
   // Add "All Notes" option
-  dropdown.innerHTML = `
-    <div class="dropdown-item" data-category-id="all">
-      <i class="fas fa-folder"></i> All Notes
-    </div>
+  const allNotesItem = document.createElement('div');
+  allNotesItem.className = `dropdown-item ${currentCategoryId === null ? 'dropdown-item-active' : ''}`;
+  allNotesItem.dataset.categoryId = 'all';
+  allNotesItem.innerHTML = `
+    <i class="fas fa-folder"></i> All Notes
+    ${currentCategoryId === null ? '<span class="dropdown-active-indicator">✓</span>' : ''}
   `;
+  dropdown.appendChild(allNotesItem);
   
   // Add other categories
   appState.categories
     .filter(category => category.id !== 'all')
     .forEach(category => {
       const categoryItem = document.createElement('div');
-      categoryItem.className = 'dropdown-item';
+      categoryItem.className = `dropdown-item ${currentCategoryId === category.id ? 'dropdown-item-active' : ''}`;
       categoryItem.dataset.categoryId = category.id;
       categoryItem.innerHTML = `
         <i class="fas fa-folder"></i> ${escapeHtml(category.name)}
+        ${currentCategoryId === category.id ? '<span class="dropdown-active-indicator">✓</span>' : ''}
       `;
       dropdown.appendChild(categoryItem);
     });
