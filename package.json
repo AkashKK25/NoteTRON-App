@@ -1,8 +1,8 @@
 {
-    "name": "notes-app",
-    "productName": "Notes App",
+    "name": "notetron",
+    "productName": "NoteTRON",
     "version": "1.0.0",
-    "description": "A simple notes application",
+    "description": "A sleek note-taking app inspired by TRON Legacy",
     "main": "main.js",
     "scripts": {
         "start": "electron .",
@@ -18,22 +18,29 @@
         "electron-builder": "^24.13.3"
     },
     "build": {
-        "appId": "com.notes.app",
+        "appId": "com.notetron.app",
+        "productName": "NoteTRON",
+        "directories": {
+            "buildResources": "assets"
+        },
         "mac": {
-            "category": "public.app-category.productivity"
+            "category": "public.app-category.productivity",
+            "icon": "assets/icon.icns"
         },
         "win": {
             "target": [
                 "nsis"
-            ]
+            ],
+            "icon": "assets/icon.ico"
         },
         "linux": {
             "target": [
                 "AppImage",
                 "deb"
             ],
-            "category": "Utility"
+            "category": "Utility",
+            "icon": "assets/icon.png"
         }
     },
-    "keywords": []
+    "keywords": ["notes", "productivity", "electron", "desktop-app"]
 }

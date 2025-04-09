@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background -->
+  <rect width="512" height="512" rx="80" ry="80" fill="#1e1e1e"/>
+  
+  <!-- Notebook paper lines -->
+  <g fill="none" stroke="#444" stroke-width="4">
+    <line x1="100" y1="140" x2="412" y2="140"/>
+    <line x1="100" y1="190" x2="412" y2="190"/>
+    <line x1="100" y1="240" x2="412" y2="240"/>
+    <line x1="100" y1="290" x2="412" y2="290"/>
+    <line x1="100" y1="340" x2="412" y2="340"/>
+    <line x1="100" y1="390" x2="412" y2="390"/>
+  </g>
+  
+  <!-- Pencil -->
+  <g transform="translate(256, 256) rotate(-45) translate(-180, -20)">
+    <rect x="10" y="20" width="300" height="40" rx="5" ry="5" fill="#4a6da7"/>
+    <polygon points="310,20 350,40 310,60" fill="#4a6da7"/>
+    <rect x="0" y="30" width="20" height="20" rx="2" ry="2" fill="#eee"/>
+  </g>
+  
+  <!-- Note dropdown icon -->
+  <g fill="#fff">
+    <rect x="130" y="100" width="252" height="50" rx="8" ry="8" fill="#252525"/>
+    <polygon points="156,125 146,115 166,115" transform="rotate(-90, 156, 125)"/>
+    <rect x="176" y="115" width="180" height="20" rx="3" ry="3" fill="#444"/>
+  </g>
+</svg>

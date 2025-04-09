@@ -3,14 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Notes App</title>
+  <title>NoteTRON</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <div class="app-container">
     <header>
-      <h1>Notes App</h1>
+      <div class="app-title">
+        <h1>NoteTRON</h1>
+        <span class="tagline">Create. Label. Utilize.</span>
+      </div>
       <div class="search-container">
         <input type="text" id="search-input" placeholder="Search notes...">
         <button id="search-button"><i class="fas fa-search"></i></button>
@@ -18,15 +21,85 @@
     </header>
     
     <main>
-      <div id="notes-container"></div>
+      <!-- Categories Sidebar -->
+      <div class="sidebar">
+        <div class="categories-header">
+          <div class="categories-title">Categories</div>
+          <button id="add-category-button" class="add-category-button" title="Add Category">
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+        <ul id="category-list" class="category-list">
+          <li class="category-item active" data-id="all">
+            <span class="category-name">All Notes</span>
+          </li>
+          <!-- Categories will be added here -->
+        </ul>
+      </div>
       
-      <div class="add-note-container">
-        <button id="add-note-button">
-          <i class="fas fa-plus"></i>
-        </button>
+      <!-- Notes Content Area -->
+      <div class="content-area">
+        <div id="notes-container"></div>
+        
+        <div class="add-note-container">
+          <button id="add-note-button" title="Add Note">
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
       </div>
     </main>
   </div>
+
+  <!-- Modal Templates -->
+  <div id="category-modal" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Add Category</h3>
+        <button class="close-modal-button">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="category-name-input" class="form-label">Category Name</label>
+          <input type="text" id="category-name-input" class="form-input" placeholder="Enter category name...">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary close-modal-button">Cancel</button>
+        <button id="save-category-button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="export-import-modal" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title" id="export-import-title">Export/Import Notes</h3>
+        <button class="close-modal-button">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="export-content">
+          <p>Export all your notes as a JSON file for backup or sharing.</p>
+          <div class="form-group">
+            <button id="export-button" class="btn btn-primary">Export Notes</button>
+          </div>
+        </div>
+        <div id="import-content">
+          <p>Import notes from a JSON file.</p>
+          <div class="form-group">
+            <label for="import-file" class="form-label">Select File</label>
+            <input type="file" id="import-file" accept=".json">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary close-modal-button">Cancel</button>
+        <button id="import-button" class="btn btn-primary">Import</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
 
   <script src="renderer.js"></script>
 </body>
