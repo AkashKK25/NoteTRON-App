@@ -3,7 +3,7 @@
   width: 250px;
   height: 100%;
   padding: 1rem;
-  background-color: rgba(26, 38, 52, 0.8);
+  background-color: rgba(42, 48, 54, 0.8);
   border-right: 1px solid var(--border-color);
   overflow-y: auto;
   flex-shrink: 0;
@@ -13,9 +13,9 @@
   --card-bg-active: #2a2a2a;
   --text-color: #e0e0e0;
   --text-secondary: #a0a0a0;
-  --accent-color: #b267e6;
-  --accent-color-2: #9933cc;
-  --highlight-color: #ccaaff;
+  --accent-color: #7067e6;
+  --accent-color-2: #5c33cc;
+  --highlight-color: #bbaaff;
   --error-color: #e63946;
   --border-color: #333333;
   --scrollbar-thumb: #444444;
@@ -230,7 +230,7 @@ main {
 }
 
 .note-card:hover {
-  box-shadow: 0 0 8px rgba(76, 201, 240, 0.2);
+  box-shadow: 0 0 8px rgba(178, 228, 244, 0.2);
   border-color: var(--accent-color);
 }
 
@@ -252,7 +252,7 @@ main {
   padding: 0.75rem 1rem;
   cursor: pointer;
   position: relative;
-  background-color: rgba(26, 38, 52, 0.9);
+  background-color: rgba(41, 47, 53, 0.9);
 }
 
 .note-header::after {
@@ -313,7 +313,7 @@ main {
 
 .note-action-button:hover {
   color: var(--highlight-color);
-  background-color: rgba(76, 201, 240, 0.1);
+  background-color: rgba(156, 219, 238, 0.1);
 }
 
 .note-action-button.copy-button:hover {
@@ -431,7 +431,7 @@ main {
   padding: 1.5rem;
   width: 100%;
   max-width: 500px;
-  box-shadow: 0 0 20px rgba(76, 201, 240, 0.3);
+  box-shadow: 0 0 20px rgba(170, 223, 239, 0.3);
 }
 
 .modal-header {
@@ -559,7 +559,7 @@ main {
 }
 
 .dropdown-item:hover {
-  background-color: rgba(76, 201, 240, 0.1);
+  background-color: rgba(155, 222, 243, 0.1);
 }
 
 .dropdown-item i {
@@ -588,7 +588,7 @@ main {
 }
 
 .toast-success {
-  background-color: rgba(76, 201, 240, 0.2);
+  background-color: rgba(149, 219, 240, 0.2);
   border-left: 3px solid var(--accent-color);
 }
 
@@ -673,7 +673,7 @@ main {
   background: linear-gradient(
     90deg, 
     transparent, 
-    rgba(76, 201, 240, 0.2), 
+    rgba(151, 219, 240, 0.2), 
     transparent
   );
   z-index: 1;
