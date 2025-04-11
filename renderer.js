@@ -215,7 +215,7 @@ function deleteNote(noteId) {
       notesContainer.focus();
     }
     
-    // Force window focus refresh - fixes Electron focus issues
+    // Force window focus refresh
     setTimeout(() => {
       if (document.activeElement) {
         const currentFocus = document.activeElement;
@@ -243,7 +243,7 @@ function copyNoteContent(noteId) {
       textArea.focus();
       textArea.select();
       
-      // Try to use document.execCommand for broader compatibility
+      // Trying to use document.execCommand for broader compatibility
       const successful = document.execCommand('copy');
       
       // Clean up
@@ -370,7 +370,7 @@ function moveNoteToCategory(noteId, categoryId) {
     // Check if we're trying to move to the same category
     if ((note.categoryId === categoryId) || 
         (categoryId === 'all' && note.categoryId === null)) {
-      return; // No change needed
+      return;
     }
     
     // Update the note's category
