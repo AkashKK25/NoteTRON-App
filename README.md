@@ -1,14 +1,5 @@
-<head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-</head>
-
-<div style="display: flex; flex-direction: row; justify-content: center;">
-    <img src="assets/icon.png" alt="NoteTRON Logo" width="75" height="75"/>
-    <div style="margin-left: 10px;">
-        <h1 style="font-family: 'Orbitron', sans-serif; color: #0d82f0; margin: 0;">NoteTRON</h1>
-        <span class="tagline" style="font-family: 'Orbitron', sans-serif; color: #0d82f0; letter-spacing: 2.7px;">Create. Label. Use.</span>
-    </div>
+<div style="text-align: center;">
+    <img src="assets/NTlogoT.png" alt="NoteTRON Logo" width="300"/>
 </div>
 
 ---
