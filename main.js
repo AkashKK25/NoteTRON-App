@@ -85,8 +85,8 @@ function createMenu() {
           click: () => {
             dialog.showMessageBox(mainWindow, {
               title: 'About NoteTRON',
-              message: 'NoteTRON v1.0.0',
-              detail: 'A sleek note-taking app inspired by TRON Legacy.\n\nCreate. Label. Utilize.',
+              message: 'NoteTRON v1.2.0',
+              detail: 'A simple note-taking app.\n\nCreate. Label. Use.',
               buttons: ['OK'],
               icon: path.join(__dirname, 'assets/icon.png')
             });
